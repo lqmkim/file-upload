@@ -4,9 +4,9 @@
     
 - Install **vue-upload-component**. ```npm install vue-upload-component --save```
 
-- Install **cropperjs for image cropping**. ```npm install cropperjs --save```
+- Install **cropperjs** for image cropping. ```npm install cropperjs --save```
 
-- Install **axios for sending POST request to URL**. ```npm install axios --save```
+- Install **axios** for sending POST request to URL. ```npm install axios --save```
 
 ### Creating your component.
     
@@ -18,7 +18,7 @@
 
     **Make sure to run:** `npm run dev`
 
-- Copy the Avatar.vue script.
+- Copy the `Avatar.vue` script.
     
     [`Avatar.vue`](resources/js/components/Avatar.vue)
 
@@ -65,7 +65,7 @@
     }
     ```
 
-- Register the function as POST in `routes/web.php`.
+- Register a POST URL in `routes/web.php`.
     
     ```php
     Route::post('/upload', 'ProfileController@upload')->name('upload');
