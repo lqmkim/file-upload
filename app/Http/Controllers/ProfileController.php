@@ -47,7 +47,27 @@ class ProfileController extends Controller
          */
         $user->image = $path;
         $user->save();
+    }
 
-        echo $request;
+    /**
+     * Save video id to database
+     */
+    public function videoid(Request $request)
+    {
+        /**
+         * Get video URI
+         */
+        $uri = $request->input('uri');
+
+        /**
+         * Get current user
+         */
+        $user = Auth::user();
+
+        /**
+         * Store image path to database
+         */
+        $user->video = $uri;
+        $user->save();
     }
 }

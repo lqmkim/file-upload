@@ -21,3 +21,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/profile', 'ProfileController@index')->name('profile');
 Route::post('/upload', 'ProfileController@upload')->name('upload');
+Route::post('/videoid', 'ProfileController@videoid')->name('videoid');
