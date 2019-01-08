@@ -8,7 +8,7 @@
                 <div class="card-header">Dashboard</div>
 
                 <div class="card-body">
-                    <pdf>
+                    <pdf :user="{{ Auth::user() }}">
                         <h2>You are logged in!</h2>
 
                         <br>

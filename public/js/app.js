@@ -1997,20 +1997,32 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['user'],
   methods: {
     genPdf: function genPdf() {
       console.log('Generating PDF...');
+      /**
+       * New document
+       */
+
       var doc = new jsPDF();
-      var margins = {
-        top: 20,
-        bottom: 20,
-        left: 20,
-        width: 20
-      };
-      doc.fromHTML($('#pdfContent').get(0), 20, 20, {
+      /**
+       * Add title
+       */
+
+      doc.text(20, 20, this.user.name);
+      /**
+       * Write HTML from #pdfContent to document
+       */
+
+      doc.fromHTML($('#pdfContent').get(0), 20, 30, {
         width: 160
       });
-      doc.save('gen.pdf');
+      /**
+       * Save
+       */
+
+      doc.save(this.user.name + '.pdf');
     }
   }
 });
