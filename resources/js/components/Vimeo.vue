@@ -43,7 +43,7 @@ export default {
             /**
              * To display the upload status
              */
-            status: 'This status display not working, please see console for upload status.',
+            status: 'Upload video.',
         }
     },
     mounted() {
@@ -52,6 +52,8 @@ export default {
     methods: {
         upload(event)
         {
+            let that = this;
+
             /**
              * Get file
              */
@@ -91,6 +93,7 @@ export default {
                      * Upload status
                      */
                     console.log('Status: ' + bytes_uploaded/1048576 + 'MB / ' + bytes_total/1048576 + 'MB - ' + percentage + '%');
+                    that.status = 'Status: ' + bytes_uploaded/1048576 + 'MB / ' + bytes_total/1048576 + 'MB - ' + percentage + '%';
                 },
                 function (error) {          // If unsuccessful
                     console.log('Failed because: ' + error);
