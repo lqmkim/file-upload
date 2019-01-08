@@ -29,7 +29,7 @@
 
     @section('content')
     ...
-    <pdf>
+    <pdf :user="{{ Auth::user() }}">
         <!--
         Content goes here.
         -->
