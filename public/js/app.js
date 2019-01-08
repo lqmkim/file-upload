@@ -1978,6 +1978,45 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Pdf.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Pdf.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  methods: {
+    genPdf: function genPdf() {
+      console.log('Generating PDF...');
+      var doc = new jsPDF();
+      var margins = {
+        top: 20,
+        bottom: 20,
+        left: 20,
+        width: 20
+      };
+      doc.fromHTML($('#pdfContent').get(0), 20, 20, {
+        width: 160
+      });
+      doc.save('gen.pdf');
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Vimeo.vue?vue&type=script&lang=js&":
 /*!****************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Vimeo.vue?vue&type=script&lang=js& ***!
@@ -2035,7 +2074,7 @@ var client = new Vimeo("", // Client identifier (like app ID)
       /**
        * To display the upload status
        */
-      status: 'This status display not working, please see console for upload status.'
+      status: 'Upload video.'
     };
   },
   mounted: function mounted() {
@@ -2043,9 +2082,11 @@ var client = new Vimeo("", // Client identifier (like app ID)
   },
   methods: {
     upload: function upload(event) {
+      var that = this;
       /**
        * Get file
        */
+
       var file_name = event.target.files[0];
       /**
        * Upload video
@@ -2083,6 +2124,7 @@ var client = new Vimeo("", // Client identifier (like app ID)
          */
 
         console.log('Status: ' + bytes_uploaded / 1048576 + 'MB / ' + bytes_total / 1048576 + 'MB - ' + percentage + '%');
+        that.status = 'Status: ' + bytes_uploaded / 1048576 + 'MB / ' + bytes_total / 1048576 + 'MB - ' + percentage + '%';
       }, function (error) {
         // If unsuccessful
         console.log('Failed because: ' + error);
@@ -11744,7 +11786,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.example-avatar .avatar-upload .rounded-circle {\n    width: 200px;\n    height: 200px;\n}\n.example-avatar .text-center .btn {\n    margin: 0 .5rem\n}\n.example-avatar .avatar-edit-image {\n    max-width: 100%\n}\n.example-avatar .drop-active {\n    top: 0;\n    bottom: 0;\n    right: 0;\n    left: 0;\n    position: fixed;\n    z-index: 9999;\n    opacity: .6;\n    text-align: center;\n    background: #000;\n}\n.example-avatar .drop-active h3 {\n    margin: -.5em 0 0;\n    position: absolute;\n    top: 50%;\n    left: 0;\n    right: 0;\n    -webkit-transform: translateY(-50%);\n    transform: translateY(-50%);\n    font-size: 40px;\n    color: #fff;\n    padding: 0;\n}\n", ""]);
+exports.push([module.i, "\n.example-avatar .avatar-upload .rounded-circle {\r\n    width: 200px;\r\n    height: 200px;\n}\n.example-avatar .text-center .btn {\r\n    margin: 0 .5rem\n}\n.example-avatar .avatar-edit-image {\r\n    max-width: 100%\n}\n.example-avatar .drop-active {\r\n    top: 0;\r\n    bottom: 0;\r\n    right: 0;\r\n    left: 0;\r\n    position: fixed;\r\n    z-index: 9999;\r\n    opacity: .6;\r\n    text-align: center;\r\n    background: #000;\n}\n.example-avatar .drop-active h3 {\r\n    margin: -.5em 0 0;\r\n    position: absolute;\r\n    top: 50%;\r\n    left: 0;\r\n    right: 0;\r\n    -webkit-transform: translateY(-50%);\r\n    transform: translateY(-50%);\r\n    font-size: 40px;\r\n    color: #fff;\r\n    padding: 0;\n}\r\n", ""]);
 
 // exports
 
@@ -51326,6 +51368,34 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Pdf.vue?vue&type=template&id=2a430052&":
+/*!******************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Pdf.vue?vue&type=template&id=2a430052& ***!
+  \******************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c("div", { attrs: { id: "pdfContent" } }, [_vm._t("default")], 2),
+    _vm._v(" "),
+    _c("button", { on: { click: _vm.genPdf } }, [_vm._v("Ganerate PDF")])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Vimeo.vue?vue&type=template&id=043c262e&":
 /*!********************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Vimeo.vue?vue&type=template&id=043c262e& ***!
@@ -64829,7 +64899,8 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
  */
 
 Vue.component('avatar', __webpack_require__(/*! ./components/Avatar.vue */ "./resources/js/components/Avatar.vue").default);
-Vue.component('vimeo', __webpack_require__(/*! ./components/Vimeo.vue */ "./resources/js/components/Vimeo.vue").default); // const files = require.context('./', true, /\.vue$/i)
+Vue.component('vimeo', __webpack_require__(/*! ./components/Vimeo.vue */ "./resources/js/components/Vimeo.vue").default);
+Vue.component('pdf', __webpack_require__(/*! ./components/Pdf.vue */ "./resources/js/components/Pdf.vue").default); // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key)))
 
 /**
@@ -64989,6 +65060,75 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/Pdf.vue":
+/*!*****************************************!*\
+  !*** ./resources/js/components/Pdf.vue ***!
+  \*****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Pdf_vue_vue_type_template_id_2a430052___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Pdf.vue?vue&type=template&id=2a430052& */ "./resources/js/components/Pdf.vue?vue&type=template&id=2a430052&");
+/* harmony import */ var _Pdf_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Pdf.vue?vue&type=script&lang=js& */ "./resources/js/components/Pdf.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Pdf_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Pdf_vue_vue_type_template_id_2a430052___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Pdf_vue_vue_type_template_id_2a430052___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/Pdf.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/Pdf.vue?vue&type=script&lang=js&":
+/*!******************************************************************!*\
+  !*** ./resources/js/components/Pdf.vue?vue&type=script&lang=js& ***!
+  \******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Pdf_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./Pdf.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Pdf.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Pdf_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/Pdf.vue?vue&type=template&id=2a430052&":
+/*!************************************************************************!*\
+  !*** ./resources/js/components/Pdf.vue?vue&type=template&id=2a430052& ***!
+  \************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Pdf_vue_vue_type_template_id_2a430052___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./Pdf.vue?vue&type=template&id=2a430052& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Pdf.vue?vue&type=template&id=2a430052&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Pdf_vue_vue_type_template_id_2a430052___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Pdf_vue_vue_type_template_id_2a430052___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/js/components/Vimeo.vue":
 /*!*******************************************!*\
   !*** ./resources/js/components/Vimeo.vue ***!
@@ -65076,8 +65216,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Applications/MAMP/htdocs/file-upload/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/file-upload/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\file-upload\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\file-upload\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ }),
